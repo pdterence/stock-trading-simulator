@@ -1,0 +1,94 @@
+### 📄 Canvas Document: 📈 股票配對模擬交易器 (Stock Trading Simulator)
+
+# 📈 股票配對模擬交易器 (Stock Trading Simulator)
+
+一個基於 Single-File SPA (單一檔案單頁應用) 架構的台股配對模擬交易工具。本專案特別適合用來模擬並觀察資產在「相反走勢」標的間（例如：股票與債券、台股與美股）轉換時的複利效果與資產波動。
+
+✨ 即時聯網：內建智慧搜尋功能，開啟時會自動聯網擷取台股最新即時報價！
+
+## 🚀 線上即時體驗
+
+> 💡 *您可以透過 GitHub Pages 部署後的網址點擊直接遊玩！* [👉 點擊此處立即開始模擬交易](https://您的GitHub帳號.github.io/您的專案名稱/) *(請在部署後替換為您的實際網址)*
+
+## 🌟 核心特色
+
+1. 真實台股即時聯網：
+   - 調用 Gemini 2.5 Flash API 搭配 Google Search 網路搜尋技術，自動獲取台股最新的真實市價或收盤價。
+   - 內建 5 次指數退避重試與離線備用市價機制，確保網路不穩定時也能順暢運行。
+2. 相反走勢水平模擬引擎：
+   - 利用水平滑桿，直觀模擬兩檔股票呈現相反走勢時的波動。
+   - 往右滑動（+r%）：左側股票 A 上漲，右側股票 B 下跌。
+   - 往左滑動（−r%）：左側股票 A 下跌，右側股票 B 上漲。
+   - 模擬數學模型：
+      PriceA′​=PriceA​×(1+r)PriceB′​=PriceB​×(1−r)
+3. 一鍵複利換股交易：
+   - 按下「一鍵換股」時，系統會以當前模擬價格賣出手中全部持股，並無縫全額購入另一檔標的，完美模擬「高賣低買」的資金周轉率。
+4. 市值變化動態折線圖：
+   - 整合 Chart.js 繪圖庫，每一次換股都會在折線圖上留下紀錄。
+   - 拖曳滑桿時，折線圖的最新節點會跟隨資產波動進行即時動態起伏。
+5. Mobile-First 行動端優化：
+   - 採用響應式（Responsive）玻璃磨砂（Glassmorphism）暗色調風格。
+   - 輸入欄位防縮放優化、觸控滑桿放大設計、交易表格防溢出水平滾動。
+6. 合規免責警語彈窗：
+   - 進入網頁時會主動跳出高質感風險聲明，提醒使用者投資風險，保護創作者。
+
+## 📂 檔案架構
+
+本專案採用極簡的單網頁架構，您只需要將以下檔案上傳至 GitHub 倉庫：
+
+- `stock_trading_simulator.html` (主程式網頁，若要使用 GitHub Pages 建議重新命名為 `index.html`)
+- `README.md` (本說明文件)
+
+## 🌐 如何透過 GitHub Pages 免費部署？
+
+GitHub Pages 提供完全免費且高速度的網頁託管服務，只需簡單 4 個步驟，您的模擬器就能上線：
+
+### 步驟 1：建立 GitHub Repository
+
+1. 登入您的 GitHub 帳號。
+2. 點擊右上角 `+` -> New repository。
+3. 命名為 `stock-trading-simulator`，並將狀態設為 Public (公開)。
+
+### 步驟 2：上傳檔案
+
+1. 將專案中的 `stock_trading_simulator.html` 本地檔案重新命名為 `index.html`（*注意：GitHub Pages 預設會尋找名為 `index.html` 的檔案作為首頁*）。
+2. 將 `index.html` 與本 `README.md` 上傳至剛建立的 Repository 中。
+
+### 步驟 3：啟用 GitHub Pages
+
+1. 在您的 GitHub Repository 頁面，點擊上方選單的 Settings (設定)。
+2. 在左側選單中找到 Code and automation 區塊，點擊 Pages。
+3. 在 Build and deployment 下方的 Source 選擇 `Deploy from a branch`。
+4. 在 Branch 選擇 `main` (或 `master`)，目錄選擇 `/ (root)`，然後點擊 Save。
+
+### 步驟 4：獲取您的專屬網址
+
+- 稍等約 1 ~ 2 分鐘，重新整理 Pages 設定頁面。
+- 頂部會出現一行綠色的提示：「Your site is live at...」，這就是您的專屬模擬器網址！
+- 例如：`https://<您的GitHub帳號>.github.io/stock-trading-simulator/`
+
+## 🛠️ 自訂與客製化開發
+
+### 修改預設股票
+
+在 `index.html` 的 HTML 原始碼中搜尋 `id="stockACode"` 與 `id="stockBCode"`，您可以修改 `value` 屬性來更改預設載入的股票（例如預設為 `0050` 與 `00679B`）。
+
+```
+<input type="text" id="stockACode" value="0050" ...>
+<input type="text" id="stockBCode" value="00679B" ...>
+```
+
+### 設定您專屬的 Gemini API Key (可選)
+
+預設情況下，聯網查詢是調用免 API 密鑰的免費搜尋流量（可能因頻率限制觸發備用價格）。如果您希望查詢速度更快、更穩定：
+
+1. 前往 [Google AI Studio](https://aistudio.google.com/) 免費申請一個 API Key。
+2. 開啟 `index.html`，搜尋 `const apiKey = "";` 並在雙引號中填入您的 Key。
+
+*注意：將含有 API Key 的程式碼上傳至 Public GitHub 倉庫可能會被 GitHub 的安全性機器人自動偵測並停用您的 API Key。若要公開上傳，建議保持空白，或利用 GitHub Secrets 機制進行動態載入。*
+
+## 📝 免責聲明
+
+本專案僅供網頁開發技術交流、模擬教學與個人策略回測使用，不構成任何實際的投資建議或買賣推介。投資理財有賺有賠，使用者在真實市場進行資金配置前，請獨立思考並審慎評估風險。
+
+---
