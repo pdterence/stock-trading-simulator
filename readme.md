@@ -39,33 +39,6 @@
 - `stock_trading_simulator.html` (主程式網頁，若要使用 GitHub Pages 建議重新命名為 `index.html`)
 - `README.md` (本說明文件)
 
-## 🌐 如何透過 GitHub Pages 免費部署？
-
-GitHub Pages 提供完全免費且高速度的網頁託管服務，只需簡單 4 個步驟，您的模擬器就能上線：
-
-### 步驟 1：建立 GitHub Repository
-
-1. 登入您的 GitHub 帳號。
-2. 點擊右上角 `+` -> New repository。
-3. 命名為 `stock-trading-simulator`，並將狀態設為 Public (公開)。
-
-### 步驟 2：上傳檔案
-
-1. 將專案中的 `stock_trading_simulator.html` 本地檔案重新命名為 `index.html`（*注意：GitHub Pages 預設會尋找名為 `index.html` 的檔案作為首頁*）。
-2. 將 `index.html` 與本 `README.md` 上傳至剛建立的 Repository 中。
-
-### 步驟 3：啟用 GitHub Pages
-
-1. 在您的 GitHub Repository 頁面，點擊上方選單的 Settings (設定)。
-2. 在左側選單中找到 Code and automation 區塊，點擊 Pages。
-3. 在 Build and deployment 下方的 Source 選擇 `Deploy from a branch`。
-4. 在 Branch 選擇 `main` (或 `master`)，目錄選擇 `/ (root)`，然後點擊 Save。
-
-### 步驟 4：獲取您的專屬網址
-
-- 稍等約 1 ~ 2 分鐘，重新整理 Pages 設定頁面。
-- 頂部會出現一行綠色的提示：「Your site is live at...」，這就是您的專屬模擬器網址！
-- 例如：`https://<您的GitHub帳號>.github.io/stock-trading-simulator/`
 
 ## 🛠️ 自訂與客製化開發
 
