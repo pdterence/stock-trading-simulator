@@ -51,15 +51,6 @@
 <input type="text" id="stockBCode" value="00679B" ...>
 ```
 
-### 設定您專屬的 Gemini API Key (可選)
-
-預設情況下，聯網查詢是調用免 API 密鑰的免費搜尋流量（可能因頻率限制觸發備用價格）。如果您希望查詢速度更快、更穩定：
-
-1. 前往 [Google AI Studio](https://aistudio.google.com/) 免費申請一個 API Key。
-2. 開啟 `index.html`，搜尋 `const apiKey = "";` 並在雙引號中填入您的 Key。
-
-*注意：將含有 API Key 的程式碼上傳至 Public GitHub 倉庫可能會被 GitHub 的安全性機器人自動偵測並停用您的 API Key。若要公開上傳，建議保持空白，或利用 GitHub Secrets 機制進行動態載入。*
-
 ## 📝 免責聲明
 
 本專案僅供網頁開發技術交流、模擬教學與個人策略回測使用，不構成任何實際的投資建議或買賣推介。投資理財有賺有賠，使用者在真實市場進行資金配置前，請獨立思考並審慎評估風險。
